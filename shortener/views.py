@@ -45,3 +45,8 @@ class RedirectURL(APIView):
     def get(self, request, code):
         url = get_object_or_404(URL, short_code=code)
         return redirect(url.original_Url)
+
+
+class HelloWorld(APIView):
+    def get(self, request):
+        return Response({"message": "Hello, World!"}, status=status.HTTP_200_OK)
