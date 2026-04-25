@@ -1,11 +1,14 @@
-*/__pycache__/
-
-env
-.venv
-venv
-
-*.sqlite
-
+# Python cache
 __pycache__/
-.pyc
+*.pyc
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Environment variables
 .env
+
+# Database
+*.sqlite
