@@ -11,6 +11,6 @@ class URLSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return URL.objects.create(
-            original_url=validated_data['url'],
+            original_Url=validated_data['url'],
             short_code=self.context['short_code']
         )
