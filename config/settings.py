@@ -32,8 +32,11 @@ REST_FRAMEWORK = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "url-shortner-dbau.onrender.com"
+]
 
 
 # Application definition
@@ -52,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -61,6 +65,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
+]
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://chrono-url.vercel.app"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://chrono-url.vercel.app"
 ]
 
 ROOT_URLCONF = 'config.urls'
