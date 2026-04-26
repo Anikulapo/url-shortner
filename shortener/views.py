@@ -32,7 +32,7 @@ class CreateShortURL(APIView):
         if existing:
             return Response({
                 "short_code": existing.short_code,
-                "short_url": f"https://url-shortner-dbau.onrender.com/api/{existing.short_code}"
+                "short_url": f"https://url-shortner-dbau.onrender.com/{existing.short_code}"
             }, status=status.HTTP_200_OK)
 
         # Generate unique short code
@@ -52,7 +52,7 @@ class CreateShortURL(APIView):
 
         return Response({
             "short_code": short_code,
-            "short_url": f"https://url-shortner-dbau.onrender.com/api/{short_code}"
+            "short_url": f"https://url-shortner-dbau.onrender.com/{short_code}"
         }, status=status.HTTP_201_CREATED)
 
 class RedirectURL(APIView):
